@@ -2,7 +2,9 @@
 #include "maths/Vector.h"
 
 int main() {
-    Vector v(1, 2, 3);
-    v.print();
+    Vector a(1.5, 2.5, 0);
+    Vector b(0.5, 1.5, -1);
+    a -= b;
+    a.print();
     return 0;
 }
