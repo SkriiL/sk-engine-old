@@ -1,6 +1,7 @@
 #include "Vector3.h"
 #include <iostream>
 #include <string>
+#include <math.h>
 
 Vector3::Vector3(float _x, float _y, float _z) {
     x = _x;
@@ -68,4 +69,13 @@ void Vector3::operator*=(Vector3 v) {
     x = y * v.z - z * v.y;
     y = z * v.x - x * v.z;
     z = x * v.y - y * v.x;
+}
+
+// MAGNITUDE AND NORMALIZATION -------------------------------------------------------------------------------
+float Vector3::magnitude() {
+    return sqrt(x * x + y * y + z * z);
+}
+
+Vector3 Vector3::normalize() {
+    return *this / magnitude();
 }

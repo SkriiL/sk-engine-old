@@ -24,6 +24,9 @@ public:
     // CROSS PRODUCT -----------------------------------------------------------------------------------------
     Vector3 operator*(Vector3 v);
     void operator*=(Vector3 v);
+    // MAGNITUDE AND NORMALIZATION ---------------------------------------------------------------------------
+    float magnitude();
+    Vector3 normalize();
 };
 
 

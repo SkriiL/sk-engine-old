@@ -13,5 +13,8 @@ int main() {
     std::cout << a.dot(b) << std::endl;
     b = a * b;
     std::cout << b.toString() << std::endl;
+    b = b.normalize();
+    std::cout << b.toString() << std::endl;
+    std::cout << b.magnitude() << std::endl;
     return 0;
 }
