@@ -1,6 +1,8 @@
 #include <iostream>
+#include "maths/Vector.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    Vector v(1, 2, 3);
+    v.print();
     return 0;
 }
