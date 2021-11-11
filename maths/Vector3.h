@@ -19,8 +19,11 @@ public:
     void operator*=(float s);
     Vector3 operator/(float s);
     void operator/=(float s);
-    // DOT PRODUCT
+    // DOT PRODUCT -------------------------------------------------------------------------------------------
     float dot(Vector3 v);
+    // CROSS PRODUCT -----------------------------------------------------------------------------------------
+    Vector3 operator*(Vector3 v);
+    void operator*=(Vector3 v);
 };
 
 

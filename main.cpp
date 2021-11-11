@@ -11,5 +11,7 @@ int main() {
     a /= 2.5;
     std::cout << a.toString() << std::endl;
     std::cout << a.dot(b) << std::endl;
+    b = a * b;
+    std::cout << b.toString() << std::endl;
     return 0;
 }

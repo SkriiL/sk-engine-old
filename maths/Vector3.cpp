@@ -58,3 +58,14 @@ void Vector3::operator/=(float s) {
 float Vector3::dot(Vector3 v) {
     return x * v.x + y * v.y + z * v.z;
 }
+
+// CROSS PRODUCT ----------------------------------------------------------------------------------------------
+Vector3 Vector3::operator*(Vector3 v) {
+    return Vector3(y * v.z - z * v.y, z * v.x - x * v.z, x * v.y - y * v.x);
+}
+
+void Vector3::operator*=(Vector3 v) {
+    x = y * v.z - z * v.y;
+    y = z * v.x - x * v.z;
+    z = x * v.y - y * v.x;
+}
