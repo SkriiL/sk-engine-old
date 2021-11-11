@@ -11,7 +11,7 @@ void Vector::print() {
     std::cout << "(" << x << ", " << y << ", " << z << ")";
 }
 
-
+// ADDITION AND SUBTRACTION -------------------------------------------------------------
 Vector Vector::operator+(Vector v) {
     return Vector(x + v.x, y + v.y, z + v.z);
 }
