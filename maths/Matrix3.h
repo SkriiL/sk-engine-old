@@ -33,6 +33,10 @@ public:
     void operator*=(Matrix3 m);
     // TRANSPOSE
     Matrix3 transpose();
+    // INVERSE MATRIX
+    float determinant();
+    Matrix3 adjugate();
+    Matrix3 inverse();
 };
 
 

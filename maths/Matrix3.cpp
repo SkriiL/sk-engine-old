@@ -1,5 +1,6 @@
 #include "Matrix3.h"
 #include <string>
+#include <stdexcept>
 
 using namespace std;
 
@@ -109,4 +110,31 @@ Matrix3 Matrix3::transpose() {
     return {matrixData[0], matrixData[1], matrixData[2],
             matrixData[3], matrixData[4], matrixData[5],
             matrixData[6], matrixData[7], matrixData[8]};
+}
+
+// INVERSE MATRIX -----------------------------------------------------------------------------------------------------
+float Matrix3::determinant() {
+    return matrixData[0] * (matrixData[4] * matrixData[8] - matrixData[5] * matrixData[7])
+            - matrixData[1] * (matrixData[3] * matrixData[8] - matrixData[5] * matrixData[6])
+            + matrixData[2] * (matrixData[3] * matrixData[7] - matrixData[4] * matrixData[6]);
+}
+
+Matrix3 Matrix3::adjugate() {
+    return {matrixData[4] * matrixData[8] - matrixData[7] * matrixData[5],
+            matrixData[6] * matrixData[5] - matrixData[3] * matrixData[8],
+            matrixData[3] * matrixData[7] - matrixData[6] * matrixData[4],
+            matrixData[7] * matrixData[2] - matrixData[1] * matrixData[8],
+            matrixData[0] * matrixData[8] - matrixData[6] * matrixData[2],
+            matrixData[6] * matrixData[1] - matrixData[0] * matrixData[7],
+            matrixData[1] * matrixData[5] - matrixData[4] * matrixData[2],
+            matrixData[3] * matrixData[2] - matrixData[0] * matrixData[5],
+            matrixData[0] * matrixData[4] - matrixData[3] * matrixData[1]};
+}
+
+Matrix3 Matrix3::inverse() {
+    float det = determinant();
+    if (det == 0) {
+        throw invalid_argument("Cannot get inverse for matrix A with det(A)=0");
+    }
+    return adjugate() * (1 / det);
 }

@@ -113,6 +113,36 @@ bool testMatrix3() {
             success = false;
         }
     }
+    // INVERSE
+    float det = Matrix3(1, 1, 2, 1, 2, 1, 2, 1, 1).determinant();
+    if (det != -4) {
+        cout << "ERROR: Matrix3 Determinant Test - Expected -4 - GOT " + to_string(det) << endl;
+        success = false;
+    }
+    m = Matrix3(1, 1, 2, 1, 2, 1, 2, 1, 1).adjugate();
+    exp = Matrix3(1, 1, -3, 1, -3, 1, -3, 1, 1);
+    for (int i = 0; i < 9; i++) {
+        if (m.matrixData[i] != exp.matrixData[i]) {
+            cout << "ERROR: Matrix3 Adjugate Test at m" + to_string(i) + " - Expected " + to_string(exp.matrixData[i]) + " - Got " + to_string(m.matrixData[i]) << endl;
+            success = false;
+        }
+    }
+    m = Matrix3(1, 1, 2, 1, 2, 1, 2, 1, 1);
+    Matrix3 inv = m.inverse();
+    m *= inv;
+    exp = Matrix3::identity();
+    for (int i = 0; i < 9; i++) {
+        if (m.matrixData[i] != exp.matrixData[i]) {
+            cout << "ERROR: Matrix3 Inverse Test at m" + to_string(i) + " - Expected " + to_string(exp.matrixData[i]) + " - Got " + to_string(m.matrixData[i]) << endl;
+            success = false;
+        }
+    }
+    m = Matrix3(1, 2, 3, 4, 5, 6, 7, 8, 9);
+    try {
+        inv = m.inverse();
+        cout << "ERROR: Matrix 3 Inverse Test - Should throw invalid_argument Error for det=0" << endl;
+        success = false;
+    } catch(invalid_argument& e) {}
     return success;
 }
 
