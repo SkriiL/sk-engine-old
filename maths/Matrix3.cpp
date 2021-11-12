@@ -50,3 +50,27 @@ void Matrix3::operator-=(Matrix3 m) {
     }
 }
 
+// SCALAR MULTIPLICATION AND DIVISION ----------------------------------------------------------------------------------
+Matrix3 Matrix3::operator*(float s) {
+    return {s * matrixData[0], s * matrixData[3], s * matrixData[6],
+            s * matrixData[1], s * matrixData[4], s * matrixData[7],
+            s * matrixData[2], s * matrixData[5], s * matrixData[8]};
+}
+
+void Matrix3::operator*=(float s) {
+    for (float & i : matrixData) {
+        i *= s;
+    }
+}
+
+Matrix3 Matrix3::operator/(float s) {
+    return {s / matrixData[0], s / matrixData[3], s / matrixData[6],
+            s / matrixData[1], s / matrixData[4], s / matrixData[7],
+            s / matrixData[2], s / matrixData[5], s / matrixData[8]};
+}
+
+void Matrix3::operator/=(float s) {
+    for (float & i : matrixData) {
+        i /= s;
+    }
+}

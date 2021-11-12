@@ -74,7 +74,23 @@ bool testMatrix3() {
     Matrix3 exp = Matrix3::identity();
     for (int i = 0; i < 9; i++) {
         if (m.matrixData[i] != exp.matrixData[i]) {
-            cout << "ERROR: Matrix3 Addition Test at m" + to_string(i) + " - Expected " + to_string(m.matrixData[i]) + " - Got " + to_string(m.matrixData[i]);
+            cout << "ERROR: Matrix3 Subtraction Test at m" + to_string(i) + " - Expected " + to_string(exp.matrixData[i]) + " - Got " + to_string(m.matrixData[i]);
+            success = false;
+        }
+    }
+    m *= 3;
+    exp = Matrix3(3, 0, 0, 0, 3, 0, 0, 0, 3);
+    for (int i = 0; i < 9; i++) {
+        if (m.matrixData[i] != exp.matrixData[i]) {
+            cout << "ERROR: Matrix3 Scalar Multiplication Test at m" + to_string(i) + " - Expected " + to_string(exp.matrixData[i]) + " - Got " + to_string(m.matrixData[i]);
+            success = false;
+        }
+    }
+    m /= 3;
+    exp = Matrix3::identity();
+    for (int i = 0; i < 9; i++) {
+        if (m.matrixData[i] != exp.matrixData[i]) {
+            cout << "ERROR: Matrix3 Scalar Division Test at m" + to_string(i) + " - Expected " + to_string(exp.matrixData[i]) + " - Got " + to_string(m.matrixData[i]);
             success = false;
         }
     }

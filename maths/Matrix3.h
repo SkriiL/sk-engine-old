@@ -23,6 +23,11 @@ public:
     void operator+=(Matrix3 m);
     Matrix3 operator-(Matrix3 m);
     void operator-=(Matrix3 m);
+    // SCALAR MULTIPLICATION AND DIVISION ------------------------------------------------------------------------------
+    Matrix3 operator*(float s);
+    void operator*=(float s);
+    Matrix3 operator/(float s);
+    void operator/=(float s);
 };
 
 
