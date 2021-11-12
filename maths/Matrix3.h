@@ -28,6 +28,9 @@ public:
     void operator*=(float s);
     Matrix3 operator/(float s);
     void operator/=(float s);
+    // MATRIX MULTIPLICATION -------------------------------------------------------------------------------------------
+    Matrix3 operator*(Matrix3 m);
+    void operator*=(Matrix3 m);
 };
 
 

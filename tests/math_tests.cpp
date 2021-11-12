@@ -66,7 +66,7 @@ bool testMatrix3() {
     m += Matrix3(0, 1, 1, 1, 0, 1, 1, 1, 0);
     for (int i = 0; i < 9; i++) {
         if (m.matrixData[i] != 1) {
-            cout << "ERROR: Matrix3 Addition Test at m" + to_string(i) + " - Expected 1 - Got " + to_string(m.matrixData[i]);
+            cout << "ERROR: Matrix3 Addition Test at m" + to_string(i) + " - Expected 1 - Got " + to_string(m.matrixData[i]) << endl;
             success = false;
         }
     }
@@ -74,7 +74,7 @@ bool testMatrix3() {
     Matrix3 exp = Matrix3::identity();
     for (int i = 0; i < 9; i++) {
         if (m.matrixData[i] != exp.matrixData[i]) {
-            cout << "ERROR: Matrix3 Subtraction Test at m" + to_string(i) + " - Expected " + to_string(exp.matrixData[i]) + " - Got " + to_string(m.matrixData[i]);
+            cout << "ERROR: Matrix3 Subtraction Test at m" + to_string(i) + " - Expected " + to_string(exp.matrixData[i]) + " - Got " + to_string(m.matrixData[i]) << endl;
             success = false;
         }
     }
@@ -82,7 +82,7 @@ bool testMatrix3() {
     exp = Matrix3(3, 0, 0, 0, 3, 0, 0, 0, 3);
     for (int i = 0; i < 9; i++) {
         if (m.matrixData[i] != exp.matrixData[i]) {
-            cout << "ERROR: Matrix3 Scalar Multiplication Test at m" + to_string(i) + " - Expected " + to_string(exp.matrixData[i]) + " - Got " + to_string(m.matrixData[i]);
+            cout << "ERROR: Matrix3 Scalar Multiplication Test at m" + to_string(i) + " - Expected " + to_string(exp.matrixData[i]) + " - Got " + to_string(m.matrixData[i]) << endl;
             success = false;
         }
     }
@@ -90,7 +90,16 @@ bool testMatrix3() {
     exp = Matrix3::identity();
     for (int i = 0; i < 9; i++) {
         if (m.matrixData[i] != exp.matrixData[i]) {
-            cout << "ERROR: Matrix3 Scalar Division Test at m" + to_string(i) + " - Expected " + to_string(exp.matrixData[i]) + " - Got " + to_string(m.matrixData[i]);
+            cout << "ERROR: Matrix3 Scalar Division Test at m" + to_string(i) + " - Expected " + to_string(exp.matrixData[i]) + " - Got " + to_string(m.matrixData[i]) << endl;
+            success = false;
+        }
+    }
+    m = Matrix3(1, 1, 1, 1, 1, 1, 1, 1, 1);
+    m *= Matrix3(1, 1, 2, 1, 2, 1, 2, 1, 1);
+    exp = Matrix3(4, 4, 4, 4, 4, 4, 4, 4, 4);
+    for (int i = 0; i < 9; i++) {
+        if (m.matrixData[i] != exp.matrixData[i]) {
+            cout << "ERROR: Matrix3 Multiplication Test at m" + to_string(i) + " - Expected " + to_string(exp.matrixData[i]) + " - Got " + to_string(m.matrixData[i]) << endl;
             success = false;
         }
     }
