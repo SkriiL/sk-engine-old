@@ -103,3 +103,10 @@ void Matrix3::operator*=(Matrix3 m) {
         matrixData[i] = newData[i];
     }
 }
+
+// TRANSPOSE -----------------------------------------------------------------------------------------------------------
+Matrix3 Matrix3::transpose() {
+    return {matrixData[0], matrixData[1], matrixData[2],
+            matrixData[3], matrixData[4], matrixData[5],
+            matrixData[6], matrixData[7], matrixData[8]};
+}

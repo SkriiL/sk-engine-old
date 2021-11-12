@@ -103,6 +103,16 @@ bool testMatrix3() {
             success = false;
         }
     }
+    // TRANSPOSE
+    m = Matrix3(1, 2, 3, 4, 5, 6, 7, 8, 9);
+    m = m.transpose();
+    exp = Matrix3(1, 4, 7, 2, 5, 8, 3, 6, 9);
+    for (int i = 0; i < 9; i++) {
+        if (m.matrixData[i] != exp.matrixData[i]) {
+            cout << "ERROR: Matrix3 Transposition Test at m" + to_string(i) + " - Expected " + to_string(exp.matrixData[i]) + " - Got " + to_string(m.matrixData[i]) << endl;
+            success = false;
+        }
+    }
     return success;
 }
 

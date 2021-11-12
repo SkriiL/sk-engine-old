@@ -31,6 +31,8 @@ public:
     // MATRIX MULTIPLICATION -------------------------------------------------------------------------------------------
     Matrix3 operator*(Matrix3 m);
     void operator*=(Matrix3 m);
+    // TRANSPOSE
+    Matrix3 transpose();
 };
 
 
