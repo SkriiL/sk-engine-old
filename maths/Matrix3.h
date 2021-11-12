@@ -14,6 +14,15 @@ public:
     Matrix3();
     Matrix3(float m0, float m3, float m6, float m1, float m4, float m7, float m2, float m5, float m8);
     string toString();
+    // IDENTITY --------------------------------------------------------------------------------------------------------
+    static Matrix3 identity() {
+        return {1, 0, 0, 0, 1, 0, 0, 0, 1};
+    }
+    // ADDITION AND SUBTRACTION ----------------------------------------------------------------------------------------
+    Matrix3 operator+(Matrix3 m);
+    void operator+=(Matrix3 m);
+    Matrix3 operator-(Matrix3 m);
+    void operator-=(Matrix3 m);
 };
 
 
