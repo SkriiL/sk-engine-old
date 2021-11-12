@@ -1,7 +1,6 @@
 import os
 import sys
-from typing import List
-
+from typing import List, Dict
 
 IGNORE = [".git", ".idea", "cmake-build-debug"]
 
@@ -24,12 +23,24 @@ def build_command(paths: List[str], o_file: str) -> str:
     return command
 
 
+def get_config() -> Dict:
+    c = {"o_file": "main", "run": False}
+    for arg in sys.argv[1:]:
+        if "-o" in arg:
+            o_file_index = sys.argv.index("-o") + 1
+            if len(sys.argv) > o_file_index:
+                c["o_file"] = sys.argv[o_file_index]
+            else:
+                raise Exception("No file name for -o.")
+        if "-r" in arg:
+            c["run"] = True
+    return c
+
+
 if __name__ == "__main__":
-    o_file = sys.argv[1] if len(sys.argv) > 1 else "main"
+    config = get_config()
     paths = get_all_source_files()
-    cmd = build_command(paths, o_file)
+    cmd = build_command(paths, config["o_file"])
     os.system(cmd)
-    if len(sys.argv) > 1:
-        for arg in sys.argv[1:]:
-            if "-r" in arg:
-                os.system(o_file)
+    if config["run"]:
+        os.system(config["o_file"])

@@ -3,11 +3,12 @@
 #include "Vector3.h"
 #include <string>
 
+using namespace std;
 
 class Vector2 : public Vector3 {
 public:
     Vector2(float x, float y);
-    std::string toString();
+    string toString();
 };
 
 

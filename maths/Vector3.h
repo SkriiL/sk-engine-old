@@ -2,12 +2,13 @@
 #define SK_ENGINE_Vector3_H
 #include <string>
 
+using namespace std;
 
 class Vector3 {
 public:
     float x, y, z;
     Vector3(float _x, float _y, float _z);
-    virtual std::string toString();
+    virtual string toString();
     // ADDITION AND SUBTRACTION ------------------------------------------------------------------------------
     Vector3 operator+(Vector3 v);
     void operator+=(Vector3 v);
