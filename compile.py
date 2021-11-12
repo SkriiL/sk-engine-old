@@ -3,7 +3,7 @@ import sys
 from typing import List
 
 
-IGNORE = [".git", ".idea"]
+IGNORE = [".git", ".idea", "cmake-build-debug"]
 
 
 def get_all_source_files(path: str = "./") -> List[str]:
@@ -29,3 +29,7 @@ if __name__ == "__main__":
     paths = get_all_source_files()
     cmd = build_command(paths, o_file)
     os.system(cmd)
+    if len(sys.argv) > 1:
+        for arg in sys.argv[1:]:
+            if "-r" in arg:
+                os.system(o_file)

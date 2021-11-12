@@ -1,5 +1,6 @@
 #include <iostream>
 #include "maths/Vector3.h"
+#include "maths/Vector2.h"
 
 int main() {
     Vector3 a(1.5, 2.5, 0);
@@ -16,5 +17,8 @@ int main() {
     b = b.normalize();
     std::cout << b.toString() << std::endl;
     std::cout << b.magnitude() << std::endl;
+    Vector2 c(4, 3);
+    std::cout << c.toString() << std::endl;
+    std::cout << c.magnitude() << std::endl;;
     return 0;
 }

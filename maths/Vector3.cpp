@@ -1,7 +1,6 @@
 #include "Vector3.h"
-#include <iostream>
 #include <string>
-#include <math.h>
+#include <cmath>
 
 Vector3::Vector3(float _x, float _y, float _z) {
     x = _x;
@@ -15,7 +14,7 @@ std::string Vector3::toString() {
 
 // ADDITION AND SUBTRACTION -------------------------------------------------------------
 Vector3 Vector3::operator+(Vector3 v) {
-    return Vector3(x + v.x, y + v.y, z + v.z);
+    return {x + v.x, y + v.y, z + v.z};
 }
 
 void Vector3::operator+=(Vector3 v) {
@@ -25,7 +24,7 @@ void Vector3::operator+=(Vector3 v) {
 }
 
 Vector3 Vector3::operator-(Vector3 v) {
-    return Vector3(x - v.x, y - v.y, z - v.z);
+    return {x - v.x, y - v.y, z - v.z};
 }
 
 void Vector3::operator-=(Vector3 v) {
@@ -36,7 +35,7 @@ void Vector3::operator-=(Vector3 v) {
 
 // SCALAR MULTIPLICATION AND DIVISION ------------------------------------------------------------------------------
 Vector3 Vector3::operator*(float s) {
-    return Vector3(x * s, y * s, z * s);
+    return {x * s, y * s, z * s};
 }
 
 void Vector3::operator*=(float s) {
@@ -46,7 +45,7 @@ void Vector3::operator*=(float s) {
 }
 
 Vector3 Vector3::operator/(float s) {
-    return Vector3(x / s, y / s, z / s);
+    return {x / s, y / s, z / s};
 }
 
 void Vector3::operator/=(float s) {
@@ -62,7 +61,7 @@ float Vector3::dot(Vector3 v) {
 
 // CROSS PRODUCT ----------------------------------------------------------------------------------------------
 Vector3 Vector3::operator*(Vector3 v) {
-    return Vector3(y * v.z - z * v.y, z * v.x - x * v.z, x * v.y - y * v.x);
+    return {y * v.z - z * v.y, z * v.x - x * v.z, x * v.y - y * v.x };
 }
 
 void Vector3::operator*=(Vector3 v) {
