@@ -3,4 +3,4 @@ project(sk_engine)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(sk_engine main.cpp)
+add_executable(sk_engine main.cpp maths/Vector3.cpp maths/Vector3.h maths/Vector2.cpp maths/Vector2.h)
