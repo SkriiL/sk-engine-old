@@ -143,6 +143,12 @@ bool testMatrix3() {
         cout << "ERROR: Matrix 3 Inverse Test - Should throw invalid_argument Error for det=0" << endl;
         success = false;
     } catch(invalid_argument& e) {}
+    Vector3 v(1, 2, 3);
+    v = Matrix3::identity() * v;
+    if (v.x != 1 || v.y != 2 || v.z != 3) {
+        cout << "ERROR: Vector3 Transformation Test - Expected " + Vector3(1, 2, 3).toString() + " - Got " + v.toString() << endl;
+        success = false;
+    }
     return success;
 }
 

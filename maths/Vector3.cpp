@@ -16,7 +16,7 @@ string Vector3::toString() {
 
 // ADDITION AND SUBTRACTION -------------------------------------------------------------
 Vector3 Vector3::operator+(Vector3 v) {
-    return {x + v.x, y + v.y, z + v.z};
+    return {x + x, y + y, z + z};
 }
 
 void Vector3::operator+=(Vector3 v) {

@@ -138,3 +138,10 @@ Matrix3 Matrix3::inverse() {
     }
     return adjugate() * (1 / det);
 }
+
+// VECTOR TRANSFORMATION -----------------------------------------------------------------------------------------------
+Vector3 Matrix3::operator*(Vector3 v) {
+    return {matrixData[0] * v.x + matrixData[3] * v.y + matrixData[6] * v.z,
+            matrixData[1] * v.x + matrixData[4] * v.y + matrixData[7] * v.z,
+            matrixData[2] * v.x + matrixData[5] * v.y + matrixData[8] * v.z};
+}

@@ -1,6 +1,7 @@
 #ifndef SK_ENGINE_MATRIX3_H
 #define SK_ENGINE_MATRIX3_H
 #include <string>
+#include "Vector3.h"
 
 using namespace std;
 
@@ -31,12 +32,14 @@ public:
     // MATRIX MULTIPLICATION -------------------------------------------------------------------------------------------
     Matrix3 operator*(Matrix3 m);
     void operator*=(Matrix3 m);
-    // TRANSPOSE
+    // TRANSPOSE -------------------------------------------------------------------------------------------------------
     Matrix3 transpose();
-    // INVERSE MATRIX
+    // INVERSE MATRIX --------------------------------------------------------------------------------------------------
     float determinant();
     Matrix3 adjugate();
     Matrix3 inverse();
+    // VECTOR TRANSFORMATION -------------------------------------------------------------------------------------------
+    Vector3 operator*(Vector3 v);
 };
 
 
