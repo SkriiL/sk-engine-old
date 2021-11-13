@@ -1,24 +1,17 @@
 #include <iostream>
+
 #include "maths/Vector3.h"
 #include "maths/Vector2.h"
+#include "maths/Matrix3.h"
+
+#include "tests/math_tests.h"
+
+using namespace std;
 
 int main() {
-    Vector3 a(1.5, 2.5, 0);
-    Vector3 b(0.5, 1.5, -1);
-    a -= b;
-    std::cout << a.toString() << std::endl;
-    a *= 5;
-    std::cout << a.toString() << std::endl;
-    a /= 2.5;
-    std::cout << a.toString() << std::endl;
-    std::cout << a.dot(b) << std::endl;
-    b = a * b;
-    std::cout << b.toString() << std::endl;
-    b = b.normalize();
-    std::cout << b.toString() << std::endl;
-    std::cout << b.magnitude() << std::endl;
-    Vector2 c(4, 3);
-    std::cout << c.toString() << std::endl;
-    std::cout << c.magnitude() << std::endl;;
+    bool tests = testMaths();
+    if (tests) {
+        cout << "All tests successful!" << endl;
+    }
     return 0;
 }

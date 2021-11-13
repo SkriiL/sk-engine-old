@@ -2,19 +2,21 @@
 #include <string>
 #include <cmath>
 
+using namespace std;
+
 Vector3::Vector3(float _x, float _y, float _z) {
     x = _x;
     y = _y;
     z = _z;
 }
 
-std::string Vector3::toString() {
-    return "(" + std::to_string(x) + ", " + std::to_string(y) + ", " + std::to_string(z) + ")";
+string Vector3::toString() {
+    return "(" + to_string(x) + ", " + to_string(y) + ", " + to_string(z) + ")";
 }
 
 // ADDITION AND SUBTRACTION -------------------------------------------------------------
 Vector3 Vector3::operator+(Vector3 v) {
-    return {x + v.x, y + v.y, z + v.z};
+    return {x + x, y + y, z + z};
 }
 
 void Vector3::operator+=(Vector3 v) {
